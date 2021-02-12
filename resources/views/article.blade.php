@@ -21,7 +21,7 @@
                         <tr>
                             <td>{{ $article->title  }}</td>
                             <td>{{ $article->created_at  }}</td>
-                            <td>{{ $article->user_id  }}</td>
+                            <td>{{ $article->user->name  }}</td>
                         </tr>
                     @endforeach
                 </tbody>

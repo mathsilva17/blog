@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
-use Illuminate\Support\Facades\Auth;
 
-class ArticleController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('article',["articles" => Article::all()]);
+        return view('welcome',["articles" => Article::all()]);
     }
 
     /**
@@ -34,15 +33,9 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Article $model)
+    public function store(Request $request)
     {
-
-        $model->title = $request->title;
-        $model->body = $request->body;
-        $model->user_id = Auth::id();
-        $model->save();
-
-        return redirect()->route('article')->withStatus(__('Artigo publicado'));
+        //
     }
 
     /**
