@@ -3,24 +3,39 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                <h1>Artigos</h1>
+            </div>
+
+
+            @foreach($articles as $article)
+
+
+                <div class="mt-8  overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 ">
+                        <div class="p-6">
+                            <div class="card " style="width: 18rem;">
+                                <div class="card-body">
+                                    <h2 class="card-title ">{{ $article->title }}</h2>
+                                    <h5 class="card-text">Publicado por {{ $article->user->name }}</h5>
+                                    <p class="card-text">{{ $article->body }}</p>
+                                    
+                                </div>
+                            </div>
                         </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-
+                    </div>
                 </div>
 
+            @endforeach
 
-            </div>
+
+
+
+
         </div>
+            
     </div>
 </div>
 @endsection

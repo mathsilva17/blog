@@ -14,6 +14,9 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+
+        
+
         return view('welcome',["articles" => Article::all()]);
     }
 
